@@ -1,5 +1,5 @@
 <h1 align="center">
-  ⚔️ DRAK EXECUTION BOT ⚔️
+  ⚔️ PALRYZ AND DARK EXECUTION ⚔️
 </h1>
 
 <p align="center">
