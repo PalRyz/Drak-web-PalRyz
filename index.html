@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRAK EXECUTION | DATABASE & LOOKUP TOOL</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #0b0b0b; color: #e0e0e0; }
+    .header { background-color: #8d0000; color: #fff; text-align: center; padding: 20px; font-size: 20px; font-weight: bold; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #111; border-bottom: 1px solid #333; }
+    .toolbar span, .toolbar a { color: #999; font-size: 14px; text-decoration: none; }
+    .toolbar a:hover { text-decoration: underline; }
+    .container { max-width: 960px; margin: 30px auto; padding: 20px; background-color: #1a1a1a; border-radius: 6px; box-shadow: 0 0 12px rgba(255, 0, 0, 0.3); }
+    .user-info { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 30px; }
+    .avatar { width: 120px; height: auto; border-radius: 8px; }
+    .userinfo h3 { margin: 0 0 10px 0; color: #ff4040; }
+    .userinfo p { margin: 4px 0; }
+    .badge { background-color: #ff0000; padding: 2px 6px; border-radius: 3px; color: white; }
+    .post h2 { color: #ff4d4d; margin-bottom: 10px; }
+    .fileinfo p, .post h3, .post p { margin: 6px 0; }
+    .download { margin-top: 25px; }
+    .download-btn { display: inline-block; background: #b30000; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.3s ease; }
+    .download-btn:hover { background: #e60000; }
+    .quote-box { margin-top: 20px; padding: 15px; background-color: #2c2c2c; border-left: 4px solid #b30000; font-style: italic; }
+    .preview-image { width: 100%; margin-top: 20px; border: 1px solid #444; border-radius: 4px; }
+    .rating-bar { margin-top: 15px; font-size: 14px; color: #bbb; }
+    .flag { width: 100%; max-width: 360px; display: block; margin: 20px auto; border-radius: 4px; box-shadow: 0 0 8px rgba(255,0,0,0.4); }
+    .lookup-section, .comment-section { margin-top: 60px; padding: 30px; background-color: #1a1a1a; border-radius: 10px; box-shadow: 0 0 12px rgba(255, 0, 0, 0.4); }
+    .lookup-section h2, .comment-section h2 { margin-bottom: 20px; color: #ff4d4d; }
+    .form-control { width: 100%; padding: 12px; margin-bottom: 15px; border: none; border-radius: 6px; background-color: #2c2c2c; color: white; font-size: 16px; }
+    .btn-submit { padding: 10px 20px; background-color: #b30000; color: white; border: none; font-weight: bold; font-size: 16px; border-radius: 6px; cursor: pointer; }
+    .btn-submit:hover { background-color: #ff1a1a; }
+    .result-box, .comments-box { margin-top: 30px; padding: 20px; background-color: #111; border-left: 4px solid #b30000; border-radius: 5px; }
+    .comments-box div { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #333; }
+  </style>
+</head>
+<body>
+  <div class="header">DRAK EXECUTION | DATABASE LEAK & INTEL TOOL</div>
+  <div class="toolbar">
+    <span>🧿 Views: 111</span>
+    <span>⭐ Thread Rating: ★★★★★</span>
+    <a href="#">+ New Reply</a>
+  </div>
+  <div class="container">
+    <div class="user-info">
+     <img src="avatar.jpg" alt="Avatar" class="avatar" />
+      <div class="fileinfo">
+        <h3>PALRYZ</h3>
+        <p>REP: <span class="badge">99</span></p>
+        <p>LIKES: 1585</p>
+        <p>Joined: Apr 2023</p>
+        <p>Posts: 17</p>
+        <p>Credits: <strong>€60.00</strong></p>
+        <p>Status: <span class="badge">2 MONTHS</span></p>
+      </div>
+    </div>
+    <div class="post">
+      <h2>🔥 DRAK EXECUTION DATABASE 🔥</h2>
+      <p>Selling classified <strong>Drak Execution</strong> database. HQ, verified, and strictly limited. DM if interested.</p>
+     <img src="flag.jpg" alt="Flag" class="flag" />
+      <div class="fileinfo">
+        <p><strong>Filetype:</strong> txt</p>
+        <p><strong>Size:</strong> 1.96 GB</p>
+        <p><strong>Price:</strong> $650</p>
+      </div>
+      <h3>ABOUT</h3>
+      <div class="quote-box">Underground digital unit since 2023. Specializes in digital infiltration. Archive trace from red zone ops.</div>
+      <h3>SQL INJECTION RESULT</h3>
+      <img src="https://raw.githubusercontent.com/Nazir99inf/database/main/uploads/1752031599068.jpg" alt="SQL Leak Example" class="DOWNLOAD"/>
+      <div class="download">
+        <a href="#" class="download-btn">📥 DOWNLOAD SAMPLE HERE!!</a>
+      </div>
+      <div class="rating-bar">Verified by PalRyz • Updated 3h ago • ✔ HQ Leak</div>
+    </div>
+
+    <div class="lookup-section">
+      <h2>🔍 Domain / IP Scanner</h2>
+      <input type="text" id="query" class="form-control" placeholder="Enter domain or IP (e.g. example.com)"/>
+      <button onclick="lookup()" class="btn-submit">🔎 Lookup</button>
+      <div id="result" class="result-box" style="display:none;"></div>
+    </div>
+
+    <div class="comment-section">
+      <h2>💬 Anonymous Comment</h2>
+      <input type="text" id="name" class="form-control" placeholder="Your alias or name"/>
+      <textarea id="comment" class="form-control" placeholder="Type your message..."></textarea>
+      <button onclick="submitComment()" class="btn-submit">💬 Submit</button>
+      <div id="comments" class="comments-box"></div>
+    </div>
+  </div>
+
+<script>
+async function lookup() {
+  const query = document.getElementById('query').value.trim();
+  if (!query) return alert('Please enter a domain or IP.');
+  const resultBox = document.getElementById('result');
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = '<p>🔄 Scanning...</p>';
+  try {
+    const res = await fetch(`https://ip-api.com/json/${query}?fields=status,message,continent,country,city,lat,lon,query,isp,org,as,reverse,timezone,zip`);
+    const data = await res.json();
+    if (data.status !== 'success') {
+      resultBox.innerHTML = `<p>❌ Error: ${data.message}</p>`;
+      return;
+    }
+    resultBox.innerHTML = `
+      <p><strong>IP:</strong> ${data.query}</p>
+      <p><strong>ISP:</strong> ${data.isp}</p>
+      <p><strong>Org:</strong> ${data.org}</p>
+      <p><strong>ASN:</strong> ${data.as}</p>
+      <p><strong>Location:</strong> ${data.city}, ${data.country} (${data.continent})</p>
+      <p><strong>ZIP Code:</strong> ${data.zip}</p>
+      <p><strong>Timezone:</strong> ${data.timezone}</p>
+      <p><strong>Latitude/Longitude:</strong> ${data.lat}, ${data.lon}</p>
+      <p><strong>Reverse DNS:</strong> ${data.reverse}</p>
+    `;
+  } catch (err) {
+    resultBox.innerHTML = `<p>⚠️ Failed to fetch data.</p>`;
+    console.error(err);
+  }
+}
+
+async function loadComments() {
+  const res = await fetch('/api/comments');
+  const data = await res.json();
+  const box = document.getElementById('comments');
+  box.innerHTML = data.map(c => `
+    <div>
+      <strong>${c.name}</strong><br/>
+      <span style="color:#aaa">${new Date(c.createdAt).toLocaleString()}</span><br/>
+      ${c.comment}
+    </div>
+  `).join('');
+}
+
+async function submitComment() {
+  const name = document.getElementById('name').value;
+  const comment = document.getElementById('comment').value;
+  if (!name || !comment) return alert('Fill all fields!');
+  await fetch('/api/comments', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, comment })
+  });
+  document.getElementById('comment').value = '';
+  loadComments();
+}
+
+window.onload = loadComments;
+</script>
+</body>
+</html>
